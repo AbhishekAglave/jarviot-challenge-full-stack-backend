@@ -45,7 +45,9 @@ app.get("/api/auth/redirect", async (req, res, next) => {
   const { tokens } = await oauth2Client.getToken(code);
   await oauth2Client.setCredentials(tokens);
   res.cookie("googleAuthTokens", JSON.stringify(tokens));
-  res.redirect("https://jarviot-challenge-full-stack-frontend-omega.vercel.app/report");
+  res.redirect(
+    "https://jarviot-challenge-full-stack-frontend-omega.vercel.app/report"
+  );
 });
 
 app.use((req, res, next) => {
