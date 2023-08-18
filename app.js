@@ -14,7 +14,7 @@ var usersRouter = require("./routes/users");
 var app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000"
+    origin: "https://jarviot-challenge-full-stack-frontend-omega.vercel.app"
   })
 );
 app.use(logger("dev"));
@@ -45,7 +45,7 @@ app.get("/api/auth/redirect", async (req, res, next) => {
   const { tokens } = await oauth2Client.getToken(code);
   await oauth2Client.setCredentials(tokens);
   res.cookie("googleAuthTokens", JSON.stringify(tokens));
-  res.redirect("http://localhost:3000/report");
+  res.redirect("https://jarviot-challenge-full-stack-frontend-omega.vercel.app/report");
 });
 
 app.use((req, res, next) => {
